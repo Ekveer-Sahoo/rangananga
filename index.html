@@ -7,235 +7,284 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--navy:#0a1628;--blue:#1a3a5c;--accent:#c8a45a;--accent2:#d4af37;--light:#f4f1eb;--white:#fff;--gray:#6b7280;--lgray:#e8e4dd;--text:#1e293b;--card:#fff;--section-alt:#f9f7f3;--altair-dark:#0b0f1a;--altair-blue:#0d1b2a;--altair-accent:#00d4ff;--capier-wine:#2d0a1e;--capier-accent:#ff6b6b}
+:root{--navy:#0a1628;--blue:#1a3a5c;--accent:#c8a45a;--accent2:#d4af37;--light:#f4f1eb;--white:#fff;--gray:#6b7280;--lgray:#e8e4dd;--text:#1e293b;--section-alt:#f9f7f3;--aa:#00d4ff;--ca:#ff6b6b}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(10,22,40,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,164,90,.15);transition:all .3s}
-.nav-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:70px}
-.nav-logo{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.15rem;font-weight:600;letter-spacing:.5px}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(10,22,40,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,164,90,.15)}
+.nav-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.1rem;font-weight:600}
 .nav-logo span{color:#fff;font-weight:400}
-.nav-links{display:flex;gap:1.5rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;transition:color .3s;text-transform:uppercase}
+.nav-links{display:flex;gap:1.4rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.3px;text-transform:uppercase;transition:color .3s}
 .nav-links a:hover{color:var(--accent)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
-.hamburger span{width:24px;height:2px;background:#fff;transition:.3s}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;width:100%;background:rgba(10,22,40,.98);backdrop-filter:blur(16px);padding:1rem 0;border-bottom:1px solid rgba(200,164,90,.15);z-index:999}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.75rem 1.5rem;color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.5px;transition:all .2s}
+.mobile-menu a:hover{color:var(--accent);background:rgba(200,164,90,.05)}
 
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0f2847 50%,#152d50 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0f2847 50%,#152d50 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:64px}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,90,.06) 0%,transparent 70%)}
-.hero-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;padding:4rem 2rem;position:relative;z-index:2}
+.hero-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:center;padding:3rem 1.5rem;position:relative;z-index:2}
 .hero-text{color:#fff}
-.hero-badge{display:inline-block;border:1px solid rgba(200,164,90,.4);color:var(--accent);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem}
-.hero-text h1{font-family:'Playfair Display',serif;font-size:3.2rem;line-height:1.15;font-weight:700;margin-bottom:.5rem}
+.hero-badge{display:inline-block;border:1px solid rgba(200,164,90,.4);color:var(--accent);font-size:.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1.25rem}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:3rem;line-height:1.15;font-weight:700;margin-bottom:.5rem}
 .hero-text h1 .gold{color:var(--accent)}
-.hero-subtitle{font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:1rem;font-weight:300}
-.hero-roles{display:flex;flex-direction:column;gap:.4rem;margin-bottom:2rem}
-.hero-roles span{font-size:.82rem;color:rgba(255,255,255,.55);padding-left:1rem;border-left:2px solid var(--accent);line-height:1.5}
-.hero-stats{display:flex;gap:2.5rem;margin-top:2rem}
-.stat{text-align:left}
-.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--accent)}
-.stat-label{font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-.hero-img{position:relative;display:flex;justify-content:center;align-items:center}
-.avatar-frame{width:320px;height:380px;border-radius:20px;background:linear-gradient(135deg,rgba(200,164,90,.2),rgba(200,164,90,.05));border:1px solid rgba(200,164,90,.2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.avatar-frame .initials{font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--accent);opacity:.9}
-.avatar-deco{position:absolute;width:100%;height:100%;top:0;left:0}
-.avatar-deco::before{content:'';position:absolute;top:20px;right:20px;width:60px;height:60px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);border-radius:0 8px 0 0}
-.avatar-deco::after{content:'';position:absolute;bottom:20px;left:20px;width:60px;height:60px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);border-radius:0 0 0 8px}
+.hero-subtitle{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:1rem;font-weight:300}
+.hero-roles{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.5rem}
+.hero-roles span{font-size:.78rem;color:rgba(255,255,255,.5);padding-left:1rem;border-left:2px solid var(--accent);line-height:1.5}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:.68rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.hero-img{display:flex;justify-content:center}
+.avatar-frame{width:300px;height:360px;border-radius:20px;background:linear-gradient(135deg,rgba(200,164,90,.2),rgba(200,164,90,.05));border:1px solid rgba(200,164,90,.2);display:flex;align-items:center;justify-content:center;position:relative}
+.avatar-frame .initials{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:var(--accent);opacity:.9}
+.avatar-deco{position:absolute;inset:0}
+.avatar-deco::before{content:'';position:absolute;top:18px;right:18px;width:50px;height:50px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);border-radius:0 8px 0 0}
+.avatar-deco::after{content:'';position:absolute;bottom:18px;left:18px;width:50px;height:50px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);border-radius:0 0 0 8px}
 
 /* SECTIONS */
-section{padding:5rem 2rem}
+section{padding:4rem 1.5rem}
 .section-inner{max-width:1100px;margin:auto}
-.section-tag{display:inline-block;color:var(--accent2);font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.75rem}
-.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem;color:var(--navy)}
-.section-line{width:50px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:2rem}
+.section-tag{display:inline-block;color:var(--accent2);font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.6rem}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;margin-bottom:.4rem;color:var(--navy)}
+.section-line{width:45px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:1.75rem}
 .alt-bg{background:var(--section-alt)}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
-.about-text{font-size:.92rem;line-height:1.85;color:#475569}
-.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.highlight-card{background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.25rem;transition:all .3s}
-.highlight-card:hover{border-color:var(--accent);box-shadow:0 8px 25px rgba(200,164,90,.1)}
-.highlight-card .icon{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem;margin-bottom:.75rem}
-.highlight-card h4{font-size:.82rem;font-weight:600;margin-bottom:.25rem;color:var(--navy)}
-.highlight-card p{font-size:.72rem;color:var(--gray);line-height:1.5}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:1.5rem}
+.about-text{font-size:.9rem;line-height:1.85;color:#475569}
+.about-text p+p{margin-top:.75rem}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.hl-card{background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.1rem;transition:all .3s}
+.hl-card:hover{border-color:var(--accent);box-shadow:0 6px 20px rgba(200,164,90,.08)}
+.hl-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.95rem;margin-bottom:.6rem}
+.hl-card h4{font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.hl-card p{font-size:.7rem;color:var(--gray);line-height:1.5}
 
 /* TIMELINE */
-.timeline{position:relative;margin-top:2rem}
-.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--lgray))}
-.tl-item{display:flex;gap:2rem;margin-bottom:2rem;position:relative}
-.tl-dot{width:42px;min-width:42px;height:42px;border-radius:50%;background:var(--white);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;z-index:2;font-size:.7rem;font-weight:700;color:var(--accent)}
-.tl-content{background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.5rem;flex:1;transition:all .3s}
-.tl-content:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.04)}
-.tl-content h4{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
-.tl-content .tl-org{font-size:.8rem;color:var(--accent2);font-weight:500;margin-bottom:.35rem}
-.tl-content .tl-date{font-size:.72rem;color:var(--gray);margin-bottom:.5rem}
-.tl-content p{font-size:.82rem;line-height:1.65;color:#64748b}
+.timeline{position:relative;margin-top:1.5rem;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--lgray))}
+.tl-item{position:relative;margin-bottom:1.5rem;padding-left:2rem}
+.tl-item::before{content:'';position:absolute;left:-20px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--white);z-index:2}
+.tl-content{background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.25rem;transition:all .3s}
+.tl-content:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.tl-content h4{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.tl-org{font-size:.78rem;color:var(--accent2);font-weight:500}
+.tl-date{font-size:.7rem;color:var(--gray);margin:.2rem 0 .4rem}
+.tl-content p{font-size:.8rem;line-height:1.6;color:#64748b}
 
-/* RESEARCH */
-.research-areas{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
-.ra-card{background:var(--white);border:1px solid var(--lgray);border-radius:14px;padding:1.75rem;text-align:center;transition:all .4s;cursor:default;position:relative;overflow:hidden}
+/* RESEARCH CARDS */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem;margin-top:1.5rem}
+.ra-card{background:var(--white);border:1px solid var(--lgray);border-radius:13px;padding:1.5rem;text-align:center;transition:all .4s;position:relative;overflow:hidden}
 .ra-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .ra-card:hover::before{transform:scaleX(1)}
-.ra-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.06)}
-.ra-icon{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,#f0ebe0,#e8e0d0);display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;font-size:1.3rem}
-.ra-card h4{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
-.ra-card p{font-size:.74rem;color:var(--gray);line-height:1.55}
+.ra-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.05)}
+.ra-icon{width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,#f0ebe0,#e8e0d0);display:flex;align-items:center;justify-content:center;margin:0 auto .65rem;font-size:1.2rem}
+.ra-card h4{font-size:.84rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
+.ra-card p{font-size:.72rem;color:var(--gray);line-height:1.5}
 
-/* PUBLICATIONS */
-.pub-grid{display:grid;gap:1rem;margin-top:2rem}
-.pub-item{display:flex;gap:1.25rem;background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.5rem;transition:all .3s}
-.pub-item:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.04)}
-.pub-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--accent);min-width:60px;text-align:center;line-height:1}
-.pub-info h4{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
-.pub-info p{font-size:.78rem;color:var(--gray);line-height:1.6}
-.pub-tag{display:inline-block;font-size:.65rem;font-weight:600;color:var(--accent2);background:rgba(200,164,90,.1);padding:3px 10px;border-radius:10px;margin-top:.5rem}
+/* PUBS */
+.pub-grid{display:grid;gap:.85rem;margin-top:1.5rem}
+.pub-item{display:flex;gap:1rem;background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.25rem;transition:all .3s}
+.pub-item:hover{border-color:var(--accent)}
+.pub-icon{font-size:1.5rem;min-width:40px;text-align:center}
+.pub-info h4{font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.pub-info p{font-size:.76rem;color:var(--gray);line-height:1.55}
+.pub-tag{display:inline-block;font-size:.63rem;font-weight:600;color:var(--accent2);background:rgba(200,164,90,.1);padding:2px 9px;border-radius:10px;margin-top:.4rem}
 
-/* ===== DTU ALTAIR SECTIONS ===== */
-.altair-hero{background:linear-gradient(135deg,#020810 0%,#0a1930 40%,#0d2240 100%);padding:6rem 2rem;position:relative;overflow:hidden}
-.altair-hero::before{content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.06),transparent 70%);border-radius:50%}
-.altair-hero::after{content:'';position:absolute;bottom:-200px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,212,255,.04),transparent 70%);border-radius:50%}
-.altair-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(0,212,255,.3);color:var(--altair-accent);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem}
-.altair-title{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.altair-title span{color:var(--altair-accent)}
-.altair-subtitle{font-size:1rem;color:rgba(255,255,255,.6);max-width:750px;line-height:1.7;margin-bottom:2.5rem}
-.altair-stats-row{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
-.a-stat{text-align:center;min-width:120px}
-.a-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--altair-accent)}
-.a-stat-label{font-size:.68rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
-.altair-dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.altair-dept{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.12);border-radius:12px;padding:1.25rem;text-align:center;transition:all .3s}
-.altair-dept:hover{background:rgba(0,212,255,.05);border-color:rgba(0,212,255,.3);transform:translateY(-3px)}
-.altair-dept .dept-icon{font-size:1.5rem;margin-bottom:.5rem}
-.altair-dept h4{font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.2rem}
-.altair-dept p{font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.5}
+/* ====== ALTAIR ====== */
+.altair-hero{background:linear-gradient(135deg,#020810,#0a1930 50%,#0d2240);padding:4.5rem 1.5rem;position:relative;overflow:hidden}
+.altair-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.06),transparent 70%);border-radius:50%}
+.a-badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(0,212,255,.3);color:var(--aa);font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1.25rem}
+.a-title{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.a-title span{color:var(--aa)}
+.a-sub{font-size:.92rem;color:rgba(255,255,255,.55);max-width:750px;line-height:1.7;margin-bottom:2rem}
+.a-stats{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.as{text-align:center;min-width:90px}
+.as-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--aa)}
+.as-l{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.a-dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-top:1.25rem}
+.a-dept{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.12);border-radius:11px;padding:1.1rem;text-align:center;transition:all .3s}
+.a-dept:hover{background:rgba(0,212,255,.05);border-color:rgba(0,212,255,.25);transform:translateY(-2px)}
+.a-dept .di{font-size:1.3rem;margin-bottom:.4rem}
+.a-dept h4{font-size:.78rem;font-weight:600;color:#fff;margin-bottom:.15rem}
+.a-dept p{font-size:.67rem;color:rgba(255,255,255,.4);line-height:1.45}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+.proj{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:13px;padding:1.35rem;transition:all .35s;position:relative;overflow:hidden}
+.proj::after{content:'';position:absolute;top:-30px;right:-30px;width:80px;height:80px;background:radial-gradient(circle,rgba(0,212,255,.05),transparent);border-radius:50%}
+.proj:hover{border-color:rgba(0,212,255,.28);transform:translateY(-2px)}
+.proj .pi{font-size:1.35rem;margin-bottom:.6rem}
+.proj h4{font-size:.84rem;font-weight:600;color:#fff;margin-bottom:.2rem;position:relative;z-index:2}
+.proj p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5;position:relative;z-index:2}
 
-/* ALTAIR TEAM & ACHIEVEMENTS */
-.altair-section2{background:linear-gradient(180deg,#0a1930,#060e1a);padding:5rem 2rem;position:relative}
-.altair-achieve-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
-.achieve-card{display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:12px;padding:1.25rem;transition:all .3s}
-.achieve-card:hover{border-color:rgba(0,212,255,.3)}
-.achieve-icon{width:42px;min-width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,212,255,.05));display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-.achieve-card h4{font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.2rem}
-.achieve-card p{font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5}
+/* ALTAIR SEC2 */
+.altair-s2{background:linear-gradient(180deg,#0a1930,#060e1a);padding:4.5rem 1.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.85rem;margin-top:1.5rem}
+.tc{background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:13px;padding:1.25rem .75rem;text-align:center;transition:all .4s;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--aa),transparent);opacity:0;transition:opacity .3s}
+.tc:hover::before{opacity:1}
+.tc:hover{transform:translateY(-3px);border-color:rgba(0,212,255,.22);box-shadow:0 6px 24px rgba(0,212,255,.06)}
+.tc-av{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(0,150,255,.08));border:2px solid rgba(0,212,255,.18);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--aa)}
+.tc h4{font-size:.76rem;font-weight:600;color:#fff;margin-bottom:.1rem}
+.tc .tr{font-size:.65rem;color:var(--aa);font-weight:500;margin-bottom:.2rem}
+.tc p{font-size:.63rem;color:rgba(255,255,255,.38);line-height:1.4}
+.ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-top:1.5rem}
+.ach{display:flex;gap:.85rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:11px;padding:1.1rem;transition:all .3s}
+.ach:hover{border-color:rgba(0,212,255,.25)}
+.ach-ic{width:38px;min-width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(0,212,255,.04));display:flex;align-items:center;justify-content:center;font-size:1rem}
+.ach h4{font-size:.78rem;font-weight:600;color:#fff;margin-bottom:.15rem}
+.ach p{font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.45}
+.ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.25rem}
+.ip-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:11px;padding:1.15rem}
+.ip-card .ipi{font-size:1.1rem;margin-bottom:.4rem}
+.ip-card h4{font-size:.76rem;font-weight:600;color:#fff;margin-bottom:.15rem}
+.ip-card p{font-size:.68rem;color:rgba(255,255,255,.4);line-height:1.45}
 
-/* ALTAIR TEAM MEMBERS */
-.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
-.team-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:all .4s;position:relative;overflow:hidden}
-.team-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--altair-accent),transparent);opacity:0;transition:opacity .3s}
-.team-card:hover::before{opacity:1}
-.team-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,.25);box-shadow:0 8px 30px rgba(0,212,255,.08)}
-.team-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(0,150,255,.1));border:2px solid rgba(0,212,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--altair-accent)}
-.team-card h4{font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.15rem}
-.team-card .team-role{font-size:.68rem;color:var(--altair-accent);font-weight:500;margin-bottom:.3rem}
-.team-card p{font-size:.66rem;color:rgba(255,255,255,.4);line-height:1.4}
+/* ====== CAPIER ====== */
+.capier-hero{background:linear-gradient(135deg,#1a0a12,#2d1420 40%,#3d1a2a 70%,#1a0a12);padding:4.5rem 1.5rem;position:relative;overflow:hidden}
+.capier-hero::before{content:'';position:absolute;top:-100px;right:-50px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,107,.05),transparent 70%);border-radius:50%}
+.c-badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(255,107,107,.3);color:var(--ca);font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1.25rem}
+.c-title{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.c-title span{color:var(--ca)}
+.c-sub{font-size:.92rem;color:rgba(255,255,255,.55);max-width:800px;line-height:1.7;margin-bottom:2rem}
+.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem;margin-top:2rem}
+.cc{background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.1);border-radius:13px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+.cc::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--ca),#ff9a9e);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.cc:hover::before{transform:scaleX(1)}
+.cc:hover{transform:translateY(-2px);border-color:rgba(255,107,107,.22)}
+.cc .ci{font-size:1.35rem;margin-bottom:.6rem}
+.cc h4{font-size:.86rem;font-weight:600;color:#fff;margin-bottom:.25rem}
+.cc p{font-size:.74rem;color:rgba(255,255,255,.45);line-height:1.55}
+.conf-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+.conf{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:10px;padding:.65rem 1.1rem;text-align:center;transition:all .3s;min-width:115px}
+.conf:hover{border-color:rgba(255,107,107,.32)}
+.conf h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ca);margin-bottom:.1rem}
+.conf p{font-size:.65rem;color:rgba(255,255,255,.4)}
+.c-journal{display:flex;gap:1.25rem;align-items:center;margin-top:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.15);border-radius:13px;padding:1.5rem}
+.c-journal .ji{font-size:2.2rem;min-width:50px;text-align:center}
+.c-journal h4{font-size:.92rem;font-weight:600;color:#fff;margin-bottom:.2rem}
+.c-journal p{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.55}
+.pub-partners{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.pp{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.4rem .85rem;font-size:.72rem;color:rgba(255,255,255,.65)}
 
-/* ALTAIR PROJECTS */
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
-.project-card{background:rgba(255,255,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:14px;padding:1.5rem;transition:all .4s;position:relative;overflow:hidden}
-.project-card::after{content:'';position:absolute;top:-40px;right:-40px;width:100px;height:100px;background:radial-gradient(circle,rgba(0,212,255,.06),transparent);border-radius:50%}
-.project-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-3px)}
-.project-card .p-icon{font-size:1.5rem;margin-bottom:.75rem}
-.project-card h4{font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.3rem;position:relative;z-index:2}
-.project-card p{font-size:.74rem;color:rgba(255,255,255,.5);line-height:1.55;position:relative;z-index:2}
-
-/* ===== CAPIER SECTION ===== */
-.capier-hero{background:linear-gradient(135deg,#1a0a12 0%,#2d1420 30%,#3d1a2a 60%,#1a0a12 100%);padding:6rem 2rem;position:relative;overflow:hidden}
-.capier-hero::before{content:'';position:absolute;top:-100px;right:0;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,107,.05),transparent 70%);border-radius:50%}
-.capier-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,107,107,.3);color:var(--capier-accent);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem}
-.capier-title{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.capier-title span{color:var(--capier-accent)}
-.capier-subtitle{font-size:1rem;color:rgba(255,255,255,.6);max-width:800px;line-height:1.7;margin-bottom:2.5rem}
-.capier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.capier-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.1);border-radius:14px;padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
-.capier-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--capier-accent),#ff9a9e);transform:scaleX(0);transition:transform .4s;transform-origin:left}
-.capier-card:hover::before{transform:scaleX(1)}
-.capier-card:hover{transform:translateY(-3px);border-color:rgba(255,107,107,.25)}
-.capier-card .c-icon{font-size:1.5rem;margin-bottom:.75rem}
-.capier-card h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:.3rem}
-.capier-card p{font-size:.76rem;color:rgba(255,255,255,.5);line-height:1.6}
-.capier-conf-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
-.conf-chip{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:10px;padding:.75rem 1.25rem;text-align:center;transition:all .3s;min-width:130px}
-.conf-chip:hover{border-color:rgba(255,107,107,.35)}
-.conf-chip h4{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--capier-accent);margin-bottom:.15rem}
-.conf-chip p{font-size:.68rem;color:rgba(255,255,255,.45)}
-.capier-journal{display:flex;gap:1.5rem;align-items:center;margin-top:2.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.15);border-radius:14px;padding:1.75rem}
-.capier-journal .j-icon{font-size:2.5rem;min-width:60px;text-align:center}
-.capier-journal h4{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.25rem}
-.capier-journal p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6}
-
-/* CENTRES OVERVIEW */
-.centres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
-.centre-card{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;padding:2rem;color:#fff;position:relative;overflow:hidden;transition:transform .3s}
-.centre-card:hover{transform:translateY(-3px)}
-.centre-card::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(200,164,90,.08)}
-.centre-card h4{font-size:1rem;font-weight:600;margin-bottom:.15rem;position:relative;z-index:2}
-.centre-card .centre-full{font-size:.7rem;color:var(--accent);font-weight:500;margin-bottom:.75rem;position:relative;z-index:2}
-.centre-card p{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;position:relative;z-index:2}
+/* CENTRES */
+.centres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
+.ctr{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:1.75rem;color:#fff;position:relative;overflow:hidden;transition:transform .3s}
+.ctr:hover{transform:translateY(-2px)}
+.ctr::after{content:'';position:absolute;top:-25px;right:-25px;width:100px;height:100px;border-radius:50%;background:rgba(200,164,90,.07)}
+.ctr h4{font-size:.95rem;font-weight:600;margin-bottom:.1rem;position:relative;z-index:2}
+.ctr .cf{font-size:.68rem;color:var(--accent);font-weight:500;margin-bottom:.6rem;position:relative;z-index:2}
+.ctr p{font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.55;position:relative;z-index:2}
 
 /* AWARDS */
-.awards-list{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem}
-.award-item{display:flex;gap:1rem;align-items:flex-start;background:var(--white);border:1px solid var(--lgray);border-radius:12px;padding:1.25rem;transition:all .3s}
-.award-item:hover{border-color:var(--accent)}
-.award-icon{width:42px;min-width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.1rem}
-.award-item h4{font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
-.award-item p{font-size:.74rem;color:var(--gray);line-height:1.5}
+.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.aw{display:flex;gap:.85rem;align-items:flex-start;background:var(--white);border:1px solid var(--lgray);border-radius:11px;padding:1.15rem;transition:all .3s}
+.aw:hover{border-color:var(--accent)}
+.aw-ic{width:40px;min-width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.aw h4{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.15rem}
+.aw p{font-size:.72rem;color:var(--gray);line-height:1.45}
 
 /* TEACHING */
-.courses-flex{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
-.course-chip{background:var(--white);border:1px solid var(--lgray);border-radius:8px;padding:.5rem 1rem;font-size:.78rem;font-weight:500;color:var(--navy);transition:all .3s}
-.course-chip:hover{border-color:var(--accent);background:rgba(200,164,90,.05)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.chip{background:var(--white);border:1px solid var(--lgray);border-radius:8px;padding:.45rem .9rem;font-size:.76rem;font-weight:500;color:var(--navy);transition:all .3s}
+.chip:hover{border-color:var(--accent);background:rgba(200,164,90,.04)}
+.num-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.num-card{background:var(--section-alt);border:1px solid var(--lgray);border-radius:11px;padding:1.25rem;text-align:center}
+.num-card .n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--accent)}
+.num-card .nl{font-size:.74rem;color:var(--gray);margin-top:.2rem}
 
 /* CONTACT */
-.contact-section{background:linear-gradient(135deg,var(--navy),#0f2847);color:#fff;padding:5rem 2rem}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem}
-.c-item{display:flex;gap:1rem;align-items:flex-start}
-.c-icon{width:42px;min-width:42px;height:42px;border-radius:10px;background:rgba(200,164,90,.15);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem}
-.c-item h4{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:.15rem}
-.c-item p{font-size:.88rem;color:#fff;font-weight:400}
-.c-item a{color:var(--accent);text-decoration:none}
-.contact-links{display:flex;flex-direction:column;gap:1rem}
-.contact-link{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.5rem;text-decoration:none;color:#fff;transition:all .3s}
-.contact-link:hover{background:rgba(200,164,90,.1);border-color:rgba(200,164,90,.3)}
-.contact-link .cl-icon{font-size:1.2rem}
-.contact-link .cl-text{font-size:.85rem;font-weight:500}
-.contact-link .cl-sub{font-size:.72rem;color:rgba(255,255,255,.5)}
+.contact-s{background:linear-gradient(135deg,var(--navy),#0f2847);color:#fff;padding:4.5rem 1.5rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:1.5rem}
+.ci{display:flex;gap:.85rem;align-items:flex-start;margin-bottom:1.25rem}
+.ci-ic{width:40px;min-width:40px;height:40px;border-radius:9px;background:rgba(200,164,90,.15);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.95rem}
+.ci h4{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.45);margin-bottom:.1rem}
+.ci p{font-size:.85rem;color:#fff}
+.ci a{color:var(--accent);text-decoration:none}
+.cl{display:flex;align-items:center;gap:.85rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:.9rem 1.25rem;text-decoration:none;color:#fff;transition:all .3s;margin-bottom:.75rem}
+.cl:hover{background:rgba(200,164,90,.08);border-color:rgba(200,164,90,.25)}
+.cl-i{font-size:1.1rem}
+.cl-t{font-size:.82rem;font-weight:500}
+.cl-s{font-size:.68rem;color:rgba(255,255,255,.45)}
 
-footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2rem;text-align:center;color:rgba(255,255,255,.35);font-size:.75rem}
+footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:1.5rem;text-align:center;color:rgba(255,255,255,.3);font-size:.72rem}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;text-align:center}
-  .hero-img{order:-1}
-  .avatar-frame{width:220px;height:260px}
-  .avatar-frame .initials{font-size:3.5rem}
-  .hero-roles span{border-left:none;padding-left:0;text-align:center}
-  .hero-stats,.altair-stats-row{justify-content:center;flex-wrap:wrap}
-  .about-grid{grid-template-columns:1fr}
-  .research-areas,.project-grid,.capier-grid{grid-template-columns:1fr 1fr}
-  .centres-grid,.altair-dept-grid{grid-template-columns:1fr 1fr}
-  .awards-list,.achieve-card,.contact-grid{grid-template-columns:1fr}
-  .team-grid{grid-template-columns:repeat(3,1fr)}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .3s}
+.btn-a{background:var(--aa);color:#000}
+.btn-c{background:var(--ca);color:#fff}
+.btn-o{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;font-weight:500}
+.btn-nav{background:var(--navy);color:#fff}
+.btn-bdr{border:1px solid var(--lgray);color:var(--navy);background:transparent}
+.btn-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem}
+
+/* SECTION HEADINGS inside dark sections */
+.sh{font-size:.95rem;font-weight:600;color:#fff;margin-bottom:.4rem}
+.sh2{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.75rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
   .nav-links{display:none}
-  .hamburger{display:flex}
-  .hero-text h1,.altair-title,.capier-title{font-size:2.2rem}
-}
-@media(max-width:600px){
-  .research-areas,.capier-grid,.altair-dept-grid{grid-template-columns:1fr}
-  .about-highlights{grid-template-columns:1fr}
-  .hero-stats{flex-direction:column;align-items:center;gap:1rem}
-  .team-grid{grid-template-columns:repeat(2,1fr)}
-  .project-grid{grid-template-columns:1fr}
-  .achieve-card{grid-template-columns:1fr}
+  .hamburger{display:block}
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:2rem;padding:2.5rem 1.5rem}
+  .hero-img{order:-1}
+  .avatar-frame{width:200px;height:240px}
+  .avatar-frame .initials{font-size:3rem}
+  .hero-roles span{border-left:none;padding-left:0}
+  .hero-stats{justify-content:center}
+  .about-grid{grid-template-columns:1fr}
+  .grid-3,.proj-grid,.c-grid{grid-template-columns:repeat(2,1fr)}
+  .centres-grid,.a-dept-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .ip-grid{grid-template-columns:repeat(3,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-text h1,.a-title,.c-title{font-size:2.2rem}
 }
 
-::-webkit-scrollbar{width:6px}
+@media(max-width:640px){
+  section,.altair-hero,.altair-s2,.capier-hero,.contact-s{padding:3rem 1rem}
+  .hero{padding-top:64px}
+  .hero-inner{padding:2rem 1rem}
+  .hero-text h1,.a-title,.c-title{font-size:1.75rem}
+  .section-title{font-size:1.6rem}
+  .a-sub,.c-sub,.hero-subtitle{font-size:.85rem}
+  .hero-stats{gap:1.25rem}
+  .stat-num{font-size:1.6rem}
+  .a-stats{gap:1rem}
+  .as-n{font-size:1.5rem}
+  .avatar-frame{width:160px;height:200px}
+  .avatar-frame .initials{font-size:2.5rem}
+  .about-highlights{grid-template-columns:1fr}
+  .grid-3,.proj-grid,.c-grid,.a-dept-grid,.centres-grid,.awards-grid,.ach-grid,.ip-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .num-grid{grid-template-columns:repeat(3,1fr)}
+  .c-journal{flex-direction:column;text-align:center}
+  .conf-row{gap:.5rem}
+  .conf{min-width:100px;flex:1 1 calc(33% - .5rem)}
+  .btn-row{flex-direction:column}
+  .btn-row .btn{justify-content:center}
+  .pub-item{flex-direction:column;gap:.5rem;text-align:center}
+  .pub-icon{min-width:auto}
+}
+
+@media(max-width:400px){
+  .team-grid{grid-template-columns:1fr 1fr}
+  .num-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;align-items:center;gap:.75rem}
+  .a-stats{flex-direction:column;align-items:flex-start}
+  .conf{flex:1 1 calc(50% - .5rem)}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--light)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -255,9 +304,12 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="hamburger" onclick="document.querySelector('.nav-links').style.display=this.classList.toggle('open')?'flex':'none'"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu" id="mm">
+  <a href="#about">About</a><a href="#experience">Career</a><a href="#altair">DTU Altair</a><a href="#capier">CAPIER</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="#teaching">Teaching</a><a href="#contact">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -293,15 +345,15 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
     <div class="section-line"></div>
     <div class="about-grid">
       <div class="about-text">
-        <p>Prof. Ranganath M. Singari is a distinguished Professor at Delhi Technological University (formerly Delhi College of Engineering), where he has served since 1998. He holds a dual appointment in the Department of Mechanical, Production & Industrial Engineering and the Department of Design.</p><br>
-        <p>A visionary academic leader, he founded and headed the Department of Design at DTU from 2018 to 2023 — establishing it as one of India's premier design education programs. He currently chairs three major centres at DTU: CIDE, CAPIER, and DTU ALTAIR.</p><br>
+        <p>Prof. Ranganath M. Singari is a distinguished Professor at Delhi Technological University (formerly Delhi College of Engineering), where he has served since 1998. He holds a dual appointment in the Department of Mechanical, Production & Industrial Engineering and the Department of Design.</p>
+        <p>A visionary academic leader, he founded and headed the Department of Design at DTU from 2018 to 2023 — establishing it as one of India's premier design education programs. He currently chairs three major centres at DTU: CIDE, CAPIER, and DTU ALTAIR.</p>
         <p>His research spans production engineering, optimization techniques, industrial design, friction stir welding, additive manufacturing, and the intersection of AI and design. He has published over 200 research papers, guided 12+ PhD scholars, and organized prestigious international conferences including the ICAPIE series published by Springer.</p>
       </div>
       <div class="about-highlights">
-        <div class="highlight-card"><div class="icon">🎓</div><h4>Ph.D., University of Delhi</h4><p>Department of Production Engineering, 2015</p></div>
-        <div class="highlight-card"><div class="icon">📐</div><h4>M.Tech, University of Delhi</h4><p>Computer Technology & Applications</p></div>
-        <div class="highlight-card"><div class="icon">⚙️</div><h4>B.E., BEC Bagalkot</h4><p>Industrial Production Engineering, Karnataka University, 1994</p></div>
-        <div class="highlight-card"><div class="icon">🏅</div><h4>IEEE Leadership Award</h4><p>Exceptional Leadership Award from IEEE President</p></div>
+        <div class="hl-card"><div class="hl-icon">🎓</div><h4>Ph.D., University of Delhi</h4><p>Department of Production Engineering, 2015</p></div>
+        <div class="hl-card"><div class="hl-icon">📐</div><h4>M.Tech, University of Delhi</h4><p>Computer Technology & Applications</p></div>
+        <div class="hl-card"><div class="hl-icon">⚙️</div><h4>B.E., BEC Bagalkot</h4><p>Industrial Production Engineering, Karnataka University, 1994</p></div>
+        <div class="hl-card"><div class="hl-icon">🏅</div><h4>IEEE Leadership Award</h4><p>Exceptional Leadership Award from IEEE President</p></div>
       </div>
     </div>
   </div>
@@ -314,198 +366,144 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
     <h2 class="section-title">Professional Journey</h2>
     <div class="section-line"></div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-dot">Now</div><div class="tl-content"><h4>Chairperson — CIDE, CAPIER & DTU ALTAIR</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">Current Appointments</div><p>Leading three interdisciplinary centres spanning industrial design & ergonomics, advanced production & industrial engineering research, and artificial intelligence & robotics. Also serves as Editor-in-Chief of the Journal of Advanced Design.</p></div></div>
-      <div class="tl-item"><div class="tl-dot">18</div><div class="tl-content"><h4>Founder Head, Department of Design</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">September 2018 – December 2023</div><p>Founded and built the Department of Design from the ground up, establishing B.Des and M.Des programs and creating a nationally recognized design education ecosystem at DTU.</p></div></div>
-      <div class="tl-item"><div class="tl-dot">15</div><div class="tl-content"><h4>Professor</h4><div class="tl-org">Dept. of Mechanical, Production & Industrial Engineering, DTU</div><div class="tl-date">July 2015 – Present</div><p>Full professorship with responsibilities in teaching, research supervision, and academic administration across engineering and design.</p></div></div>
-      <div class="tl-item"><div class="tl-dot">12</div><div class="tl-content"><h4>Associate Professor</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">July 2012 – July 2015</div><p>Expanded research portfolio and began groundwork for interdisciplinary design integration.</p></div></div>
-      <div class="tl-item"><div class="tl-dot">98</div><div class="tl-content"><h4>Lecturer → Assistant Professor</h4><div class="tl-org">Delhi College of Engineering (now DTU)</div><div class="tl-date">July 1998 – July 2012</div><p>Joined as Lecturer (1998), progressed through Senior Scale (2006), Selection Grade (2009). Served as Project & Estate Officer and Faculty Incharge of key laboratories.</p></div></div>
+      <div class="tl-item"><div class="tl-content"><h4>Chairperson — CIDE, CAPIER & DTU ALTAIR</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">Current Appointments</div><p>Leading three interdisciplinary centres spanning industrial design & ergonomics, advanced production research, and AI & robotics. Editor-in-Chief of the Journal of Advanced Design.</p></div></div>
+      <div class="tl-item"><div class="tl-content"><h4>Founder Head, Department of Design</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">September 2018 – December 2023</div><p>Founded the Department of Design from scratch, establishing B.Des and M.Des programs and building a nationally recognized design ecosystem at DTU.</p></div></div>
+      <div class="tl-item"><div class="tl-content"><h4>Professor</h4><div class="tl-org">Dept. of Mechanical, Production & Industrial Engineering, DTU</div><div class="tl-date">July 2015 – Present</div><p>Full professorship with responsibilities in teaching, research supervision, and administration across engineering and design.</p></div></div>
+      <div class="tl-item"><div class="tl-content"><h4>Associate Professor</h4><div class="tl-org">Delhi Technological University</div><div class="tl-date">July 2012 – July 2015</div><p>Expanded research portfolio, began groundwork for interdisciplinary design integration.</p></div></div>
+      <div class="tl-item"><div class="tl-content"><h4>Lecturer → Assistant Professor</h4><div class="tl-org">Delhi College of Engineering (now DTU)</div><div class="tl-date">July 1998 – July 2012</div><p>Joined as Lecturer (1998), rose to Senior Scale (2006) and Selection Grade (2009). Served as Project & Estate Officer and Faculty Incharge of key labs.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============================== -->
-<!-- DTU ALTAIR SECTION 1: OVERVIEW -->
-<!-- ============================== -->
+<!-- ============ DTU ALTAIR SEC 1 ============ -->
 <section class="altair-hero" id="altair">
   <div class="section-inner" style="position:relative;z-index:2">
-    <div class="altair-badge">⚡ Centre for AI & Robotics</div>
-    <h1 class="altair-title">DTU <span>ALTAIR</span></h1>
-    <p class="altair-subtitle">The official Robotics & Artificial Intelligence team of Delhi Technological University. Founded in August 2016, ALTAIR has evolved from a modest robotics club into one of India's most accomplished university technical teams — representing DTU on global platforms from NASA CANSAT to World Robotics Championship.</p>
-
-    <div class="altair-stats-row">
-      <div class="a-stat"><div class="a-stat-num">2016</div><div class="a-stat-label">Founded</div></div>
-      <div class="a-stat"><div class="a-stat-num">30+</div><div class="a-stat-label">Active Members</div></div>
-      <div class="a-stat"><div class="a-stat-num">3</div><div class="a-stat-label">Patents</div></div>
-      <div class="a-stat"><div class="a-stat-num">15+</div><div class="a-stat-label">Competition Wins</div></div>
-      <div class="a-stat"><div class="a-stat-num">6+</div><div class="a-stat-label">Global Podiums</div></div>
+    <div class="a-badge">⚡ Centre for AI & Robotics</div>
+    <h1 class="a-title">DTU <span>ALTAIR</span></h1>
+    <p class="a-sub">The official Robotics & Artificial Intelligence team of Delhi Technological University. Founded in August 2016, ALTAIR has evolved from a modest robotics club into one of India's most accomplished university technical teams — representing DTU globally from NASA CANSAT to the World Robotics Championship.</p>
+    <div class="a-stats">
+      <div class="as"><div class="as-n">2016</div><div class="as-l">Founded</div></div>
+      <div class="as"><div class="as-n">30+</div><div class="as-l">Members</div></div>
+      <div class="as"><div class="as-n">3</div><div class="as-l">Patents</div></div>
+      <div class="as"><div class="as-n">15+</div><div class="as-l">Wins</div></div>
+      <div class="as"><div class="as-n">6+</div><div class="as-l">Global Podiums</div></div>
     </div>
-
-    <h3 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;margin-top:1rem">Departments</h3>
-    <div class="altair-dept-grid">
-      <div class="altair-dept"><div class="dept-icon">⚙️</div><h4>Mechanical Systems</h4><p>CAD, simulations, 3D printing, computational design & physical system fabrication</p></div>
-      <div class="altair-dept"><div class="dept-icon">🔌</div><h4>Electronics & Embedded</h4><p>Arduino, Raspberry Pi, sensor integration, communication systems & PCB design</p></div>
-      <div class="altair-dept"><div class="dept-icon">🧠</div><h4>Software & AI</h4><p>Computer vision, ROS, SLAM, reinforcement learning (DDPG, PPO), sensor fusion</p></div>
-      <div class="altair-dept"><div class="dept-icon">📣</div><h4>Corporate & Outreach</h4><p>Sponsorships, social media, university administration & industry partnerships</p></div>
+    <h3 class="sh" style="margin-top:1.5rem">Departments</h3>
+    <div class="a-dept-grid">
+      <div class="a-dept"><div class="di">⚙️</div><h4>Mechanical Systems</h4><p>CAD, simulations, 3D printing & fabrication</p></div>
+      <div class="a-dept"><div class="di">🔌</div><h4>Electronics & Embedded</h4><p>Arduino, RPi, sensors, comms & PCB design</p></div>
+      <div class="a-dept"><div class="di">🧠</div><h4>Software & AI</h4><p>CV, ROS, SLAM, RL (DDPG, PPO), sensor fusion</p></div>
+      <div class="a-dept"><div class="di">📣</div><h4>Corporate & Outreach</h4><p>Sponsors, social media & industry partnerships</p></div>
     </div>
-
-    <!-- FLAGSHIP PROJECTS -->
-    <h3 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;margin-top:2.5rem">Flagship Projects</h3>
-    <div class="project-grid">
-      <div class="project-card"><div class="p-icon">🤖</div><h4>Wall-Climbing Robot</h4><p>Innovative surveillance bot using vacuum suction technology for navigating vertical surfaces, transitions, and inverted positions.</p></div>
-      <div class="project-card"><div class="p-icon">🚁</div><h4>AI-Powered Autonomous Drone</h4><p>Reinforcement learning, SLAM, computer vision & sensor fusion for surveillance, disaster response, and precision agriculture.</p></div>
-      <div class="project-card"><div class="p-icon">🛰️</div><h4>CANSAT Mono-Blade Satellite</h4><p>Auto-rotating maple-winged satellite design that earned Global Rank 2nd in NASA CANSAT 2021 competition.</p></div>
-      <div class="project-card"><div class="p-icon">📊</div><h4>Data Acquisition System</h4><p>High-performance real-time DAQ with multi-sensor integration and wireless connectivity for industrial applications.</p></div>
-      <div class="project-card"><div class="p-icon">🗣️</div><h4>Multimodal Conversational AI</h4><p>Advanced system integrating speech, text & video for real-time adaptive assessments and personalized skill development.</p></div>
-      <div class="project-card"><div class="p-icon">❤️</div><h4>AI Health Monitoring</h4><p>Patented non-invasive cardiovascular abnormality detection using AI-based heartbeat oscillogram analysis. 3 patents filed.</p></div>
+    <h3 class="sh" style="margin-top:2rem">Flagship Projects</h3>
+    <div class="proj-grid">
+      <div class="proj"><div class="pi">🤖</div><h4>Wall-Climbing Robot</h4><p>Surveillance bot using vacuum suction for vertical surfaces, transitions & inverted positions.</p></div>
+      <div class="proj"><div class="pi">🚁</div><h4>AI Autonomous Drone</h4><p>RL, SLAM, CV & sensor fusion for surveillance, disaster response & precision agriculture.</p></div>
+      <div class="proj"><div class="pi">🛰️</div><h4>CANSAT Satellite</h4><p>Mono-blade auto-rotating maple-wing design — Global Rank 2nd in NASA CANSAT 2021.</p></div>
+      <div class="proj"><div class="pi">📊</div><h4>Data Acquisition System</h4><p>Real-time multi-sensor DAQ with wireless connectivity for industrial applications.</p></div>
+      <div class="proj"><div class="pi">🗣️</div><h4>Multimodal Conversational AI</h4><p>Speech, text & video integration for adaptive assessments and skill development.</p></div>
+      <div class="proj"><div class="pi">❤️</div><h4>AI Health Monitoring</h4><p>Patented cardiovascular abnormality detection via AI heartbeat oscillogram analysis.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ========================================= -->
-<!-- DTU ALTAIR SECTION 2: TEAM & ACHIEVEMENTS -->
-<!-- ========================================= -->
-<section class="altair-section2" id="altair-team">
+<!-- ============ DTU ALTAIR SEC 2 ============ -->
+<section class="altair-s2" id="altair-team">
   <div class="section-inner">
-    <div class="altair-badge">🏆 Team & Achievements</div>
-    <h2 class="altair-title" style="font-size:2rem">The People Behind <span>ALTAIR</span></h2>
-    <p style="font-size:.9rem;color:rgba(255,255,255,.55);max-width:700px;line-height:1.7;margin-bottom:1rem">Under the chairpersonship of Prof. Ranganath M. Singari, ALTAIR brings together some of DTU's most talented engineers, designers, and innovators. Here are the key members driving the team's mission forward.</p>
-
+    <div class="a-badge">🏆 Team & Achievements</div>
+    <h2 class="a-title" style="font-size:1.85rem">The People Behind <span>ALTAIR</span></h2>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.5);max-width:700px;line-height:1.7;margin-bottom:.5rem">Under the chairpersonship of Prof. Ranganath M. Singari, ALTAIR brings together DTU's most talented engineers, designers, and innovators.</p>
     <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">ES</div>
-        <h4>Ekveer Sahoo</h4>
-        <p>Strategic leadership & project coordination</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">AA</div>
-        <h4>Aahan Agarwal</h4>
-        <p>Systems engineering & technical development</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">AM</div>
-        <h4>Aarush Mahajan</h4>
-        <p>Design & embedded systems integration</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">AM</div>
-        <h4>Anushka Malhotra</h4>
-        <p>Research, AI development & innovation</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">IB</div>
-        <h4>Ishaan Bandwar</h4>
-        <p>Software architecture & algorithm design</p>
-      </div>
+      <div class="tc"><div class="tc-av">ES</div><h4>Ekveer Sahoo</h4><div class="tr">Team Lead</div><p>Strategic leadership & project coordination</p></div>
+      <div class="tc"><div class="tc-av">AA</div><h4>Aahan Agarwal</h4><div class="tr">Core Member</div><p>Systems engineering & technical development</p></div>
+      <div class="tc"><div class="tc-av">AM</div><h4>Aarush Mahajan</h4><div class="tr">Core Member</div><p>Design & embedded systems integration</p></div>
+      <div class="tc"><div class="tc-av">AM</div><h4>Anushka Malhotra</h4><div class="tr">Core Member</div><p>Research, AI development & innovation</p></div>
+      <div class="tc"><div class="tc-av">YS</div><h4>Yawar Sayeed</h4><div class="tr">Core Member</div><p>Robotics systems & competition strategy</p></div>
+      <div class="tc"><div class="tc-av">IB</div><h4>Ishaan Bandwar</h4><div class="tr">Core Member</div><p>Software architecture & algorithm design</p></div>
+      <div class="tc"><div class="tc-av">AG</div><h4>Ayushmaan Gupta</h4><div class="tr">Core Member</div><p>Hardware development & prototyping</p></div>
+      <div class="tc"><div class="tc-av">SK</div><h4>Sanjeev Kumar</h4><div class="tr">Core Member</div><p>Mechanical design & fabrication</p></div>
+      <div class="tc"><div class="tc-av">TU</div><h4>Tanishq Upadhyay</h4><div class="tr">Core Member</div><p>Electronics & sensor integration</p></div>
+      <div class="tc"><div class="tc-av">SK</div><h4>Shiv Kumar</h4><div class="tr">Core Member</div><p>Technical operations & implementation</p></div>
     </div>
-
-    <!-- ACHIEVEMENTS -->
-    <h3 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;margin-top:3rem">Global Achievements & Recognition</h3>
-    <div class="altair-achieve-grid">
-      <div class="achieve-card"><div class="achieve-icon">🥇</div><div><h4>CANSAT USA 2021 — Global Rank 2nd</h4><p>1st in India, 2nd Globally at PDR stage in NASA-affiliated satellite competition</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🥉</div><div><h4>World Robot Contest, China — Bronze Medal</h4><p>Best International Team award at ABU Robocon 2018, Wuhan</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🏆</div><div><h4>CANSAT USA 2020 — Global Rank 6th</h4><p>1st in India, 6th Globally — among top teams worldwide</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🥇</div><div><h4>IIT Delhi Aero-Design Challenge — 1st Place</h4><p>Top position in one of India's most competitive aero-design events</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🏆</div><div><h4>Simulink Student Challenge 2021 — Global Rank 1</h4><p>Top position worldwide in MATLAB Simulink Student Challenge</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🥇</div><div><h4>Quadcopter Event — World Robotics Champion</h4><p>Winner of the Quadcopter Event at World Robotics Championship</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🏅</div><div><h4>Asia Pacific Excellence Award 2024</h4><p>International recognition for innovation in robotics & AI</p></div></div>
-      <div class="achieve-card"><div class="achieve-icon">🌏</div><div><h4>Global Impact Ambassador Award 2025</h4><p>Recognized in Malaysia for global impact in student-led innovation</p></div></div>
+    <h3 class="sh" style="margin-top:2.5rem">Global Achievements</h3>
+    <div class="ach-grid">
+      <div class="ach"><div class="ach-ic">🥇</div><div><h4>CANSAT USA 2021 — Global Rank 2nd</h4><p>1st in India, 2nd Globally at PDR stage — NASA-affiliated competition</p></div></div>
+      <div class="ach"><div class="ach-ic">🥉</div><div><h4>World Robot Contest, China — Bronze</h4><p>Best International Team at ABU Robocon 2018, Wuhan</p></div></div>
+      <div class="ach"><div class="ach-ic">🏆</div><div><h4>CANSAT USA 2020 — Global Rank 6th</h4><p>1st in India, 6th Globally among top teams worldwide</p></div></div>
+      <div class="ach"><div class="ach-ic">🥇</div><div><h4>IIT Delhi Aero-Design — 1st Place</h4><p>Top position in India's most competitive aero-design event</p></div></div>
+      <div class="ach"><div class="ach-ic">🏆</div><div><h4>Simulink Challenge 2021 — Global #1</h4><p>Top worldwide in MATLAB Simulink Student Challenge</p></div></div>
+      <div class="ach"><div class="ach-ic">🥇</div><div><h4>Quadcopter — World Robotics Champion</h4><p>Winner of Quadcopter Event at World Robotics Championship</p></div></div>
+      <div class="ach"><div class="ach-ic">🏅</div><div><h4>Asia Pacific Excellence Award 2024</h4><p>International recognition for innovation in robotics & AI</p></div></div>
+      <div class="ach"><div class="ach-ic">🌏</div><div><h4>Global Impact Ambassador 2025</h4><p>Recognized in Malaysia for student-led innovation impact</p></div></div>
     </div>
-
-    <!-- PATENTS -->
-    <h3 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;margin-top:2.5rem">Intellectual Property</h3>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:12px;padding:1.25rem">
-        <div style="font-size:1.2rem;margin-bottom:.5rem">📜</div>
-        <h4 style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.2rem">Utility Patent (Granted)</h4>
-        <p style="font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5">Non-Invasive Early Detection of Cardiovascular Abnormalities Using AI-Based Heartbeat Oscillogram Analysis</p>
-      </div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:12px;padding:1.25rem">
-        <div style="font-size:1.2rem;margin-bottom:.5rem">📋</div>
-        <h4 style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.2rem">Provisional Patent (Pending)</h4>
-        <p style="font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5">Portable Cardiac Health Monitoring Device with Ergonomic Stethoscope Interface</p>
-      </div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,212,255,.1);border-radius:12px;padding:1.25rem">
-        <div style="font-size:1.2rem;margin-bottom:.5rem">🔬</div>
-        <h4 style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.2rem">Ongoing R&D</h4>
-        <p style="font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5">Patent applications in progress for DAQ System, Multimodal AI, and AI-Powered Autonomous Drone</p>
-      </div>
+    <h3 class="sh" style="margin-top:2.5rem">Intellectual Property</h3>
+    <div class="ip-grid">
+      <div class="ip-card"><div class="ipi">📜</div><h4>Utility Patent (Granted)</h4><p>Non-Invasive Cardiovascular Abnormality Detection Using AI Heartbeat Oscillogram</p></div>
+      <div class="ip-card"><div class="ipi">📋</div><h4>Provisional Patent (Pending)</h4><p>Portable Cardiac Health Monitoring with Ergonomic Stethoscope Interface</p></div>
+      <div class="ip-card"><div class="ipi">🔬</div><h4>Ongoing R&D</h4><p>Patent applications for DAQ System, Multimodal AI & Autonomous Drone</p></div>
     </div>
-
-    <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="https://www.altair-dtu.in" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--altair-accent);color:#000;padding:.65rem 1.5rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .3s">🌐 Visit altair-dtu.in</a>
-      <a href="https://www.instagram.com/dtu_altair/" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;padding:.65rem 1.5rem;border-radius:8px;font-size:.82rem;font-weight:500;text-decoration:none">📸 @dtu_altair</a>
-      <a href="mailto:contactus@altair-dtu.in" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;padding:.65rem 1.5rem;border-radius:8px;font-size:.82rem;font-weight:500;text-decoration:none">✉️ contactus@altair-dtu.in</a>
+    <div class="btn-row">
+      <a href="https://www.altair-dtu.in" target="_blank" class="btn btn-a">🌐 altair-dtu.in</a>
+      <a href="https://www.instagram.com/dtu_altair/" target="_blank" class="btn btn-o">📸 @dtu_altair</a>
+      <a href="mailto:contactus@altair-dtu.in" class="btn btn-o">✉️ contactus@altair-dtu.in</a>
     </div>
   </div>
 </section>
 
-<!-- ==================== -->
-<!-- CAPIER SECTION       -->
-<!-- ==================== -->
+<!-- ============ CAPIER ============ -->
 <section class="capier-hero" id="capier">
   <div class="section-inner" style="position:relative;z-index:2">
-    <div class="capier-badge">🔬 Centre of Excellence</div>
-    <h1 class="capier-title"><span>CAPIER</span> DTU</h1>
-    <p class="capier-subtitle">The Centre for Advanced Production and Industrial Engineering Research (CAPIER) was established on 8 April 2015 at Delhi Technological University. Under the leadership of Prof. Ranganath M. Singari as Principal Investigator, CAPIER has become a globally recognized hub for manufacturing research, industry-academia collaboration, and the prestigious ICAPIE international conference series.</p>
-
-    <div class="capier-grid">
-      <div class="capier-card"><div class="c-icon">🏭</div><h4>Industry-Academia Interface</h4><p>Regular industry visits, expert lectures, workshops, and collaborative research programs connecting DTU students and faculty with manufacturing leaders across India and abroad.</p></div>
-      <div class="capier-card"><div class="c-icon">📚</div><h4>Research & Supervision</h4><p>Supervises B.Tech, M.Tech, and PhD research projects. Supports IJAPIE, an international journal in production and industrial engineering. Produces Springer-published proceedings.</p></div>
-      <div class="capier-card"><div class="c-icon">🎓</div><h4>Faculty Development</h4><p>Organized major FDP/SDP programs including AIM-2015, SDTSMT-2015, AMOM-2017 (rated as best FDP by participants), and multiple TEQIP-II sponsored programs.</p></div>
-      <div class="capier-card"><div class="c-icon">🔗</div><h4>Internship Programs</h4><p>Invites B.Tech and M.Tech students for internships during summer and winter holidays, providing hands-on experience with advanced manufacturing technologies.</p></div>
-      <div class="capier-card"><div class="c-icon">🤝</div><h4>Global Networking</h4><p>Built a worldwide network of faculty from DTU, IITs, NITs, IIITs, and international institutions through conferences, collaborative publications, and joint programs.</p></div>
-      <div class="capier-card"><div class="c-icon">💡</div><h4>Innovation & Skill Development</h4><p>Chairman of Production Engineering track under Skill India Program, DTTE Delhi. Conducts seminars on robotics, automation, and emerging manufacturing technologies.</p></div>
+    <div class="c-badge">🔬 Centre of Excellence</div>
+    <h1 class="c-title"><span>CAPIER</span> DTU</h1>
+    <p class="c-sub">The Centre for Advanced Production and Industrial Engineering Research (CAPIER) was established on 8 April 2015. Under Prof. Ranganath M. Singari as Principal Investigator, CAPIER has become a globally recognized hub for manufacturing research, industry-academia collaboration, and the prestigious ICAPIE international conference series.</p>
+    <div class="c-grid">
+      <div class="cc"><div class="ci">🏭</div><h4>Industry-Academia Interface</h4><p>Industry visits, expert lectures, workshops connecting students & faculty with manufacturing leaders across India and abroad.</p></div>
+      <div class="cc"><div class="ci">📚</div><h4>Research & Supervision</h4><p>Supervises B.Tech, M.Tech & PhD projects. Supports IJAPIE journal. Produces Springer-published proceedings.</p></div>
+      <div class="cc"><div class="ci">🎓</div><h4>Faculty Development</h4><p>Major FDP/SDP programs: AIM-2015, SDTSMT-2015, AMOM-2017 (best FDP rated), TEQIP-II sponsored programs.</p></div>
+      <div class="cc"><div class="ci">🔗</div><h4>Internship Programs</h4><p>B.Tech & M.Tech summer/winter internships with hands-on advanced manufacturing experience.</p></div>
+      <div class="cc"><div class="ci">🤝</div><h4>Global Networking</h4><p>Worldwide network spanning DTU, IITs, NITs, IIITs and international institutions through conferences & publications.</p></div>
+      <div class="cc"><div class="ci">💡</div><h4>Skill Development</h4><p>Chairman, Production Engineering — Skill India Program, DTTE Delhi. Seminars on robotics & automation.</p></div>
     </div>
-
-    <!-- ICAPIE CONFERENCE SERIES -->
-    <h3 style="font-size:1.1rem;font-weight:600;color:#fff;margin-top:3rem;margin-bottom:.5rem">ICAPIE — International Conference Series</h3>
-    <p style="font-size:.85rem;color:rgba(255,255,255,.5);max-width:700px;line-height:1.7;margin-bottom:1.5rem">The International Conference on Advanced Production and Industrial Engineering (ICAPIE) is CAPIER's flagship event — a premier global platform uniting researchers, scholars, industry experts, and policymakers. Proceedings published by Springer, IOS Press, and Scopus-indexed journals.</p>
-    <div class="capier-conf-row">
-      <div class="conf-chip"><h4>ICAPIE 2016</h4><p>Dec 9–10 · DTU Delhi</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2017</h4><p>Oct 6–7 · DTU Delhi</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2018</h4><p>Oct 5–6 · Hotel Caspia</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2019</h4><p>Dec 20–21 · DITE Delhi</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2021</h4><p>Jun 18–19 · Virtual</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2022</h4><p>Jun 11–12 · DTU Delhi</p></div>
-      <div class="conf-chip"><h4>ICAPIE 2024</h4><p>Latest Edition</p></div>
+    <h3 class="sh" style="margin-top:2.5rem">ICAPIE — International Conference Series</h3>
+    <p style="font-size:.84rem;color:rgba(255,255,255,.45);max-width:700px;line-height:1.65;margin-bottom:1rem">Premier global platform uniting researchers, scholars, industry experts & policymakers. Proceedings by Springer, IOS Press & Scopus-indexed journals.</p>
+    <div class="conf-row">
+      <div class="conf"><h4>ICAPIE '16</h4><p>Dec 9–10 · DTU</p></div>
+      <div class="conf"><h4>ICAPIE '17</h4><p>Oct 6–7 · DTU</p></div>
+      <div class="conf"><h4>ICAPIE '18</h4><p>Oct 5–6 · Caspia</p></div>
+      <div class="conf"><h4>ICAPIE '19</h4><p>Dec 20–21 · DITE</p></div>
+      <div class="conf"><h4>ICAPIE '21</h4><p>Jun 18–19 · Virtual</p></div>
+      <div class="conf"><h4>ICAPIE '22</h4><p>Jun 11–12 · DTU</p></div>
+      <div class="conf"><h4>ICAPIE '24</h4><p>Latest Edition</p></div>
     </div>
-
-    <!-- JOURNAL -->
-    <div class="capier-journal">
-      <div class="j-icon">📰</div>
-      <div>
-        <h4>International Journal of Advanced Production & Industrial Engineering (IJAPIE)</h4>
-        <p>CAPIER supports IJAPIE — an international peer-reviewed journal covering advanced manufacturing, industrial engineering, optimization, materials science, and design innovation. Complemented by Prof. Singari's role as Editor-in-Chief of the Journal of Advanced Design (ISSN: 3108-0774).</p>
-      </div>
+    <div class="c-journal">
+      <div class="ji">📰</div>
+      <div><h4>IJAPIE — Intl. Journal of Advanced Production & Industrial Engineering</h4><p>Peer-reviewed journal covering advanced manufacturing, optimization, materials science & design innovation. Complemented by Prof. Singari's Journal of Advanced Design (ISSN: 3108-0774).</p></div>
     </div>
-
-    <!-- PUBLICATION PARTNERS -->
-    <h3 style="font-size:.95rem;font-weight:600;color:#fff;margin-top:2.5rem;margin-bottom:1rem">Approved Publication Partners</h3>
-    <div style="display:flex;flex-wrap:wrap;gap:.6rem">
-      <span style="background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.45rem 1rem;font-size:.75rem;color:rgba(255,255,255,.7)">Springer (Lecture Notes in Mechanical Engineering)</span>
-      <span style="background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.45rem 1rem;font-size:.75rem;color:rgba(255,255,255,.7)">IOS Press (Scopus)</span>
-      <span style="background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.45rem 1rem;font-size:.75rem;color:rgba(255,255,255,.7)">Material Science Forum (Scopus)</span>
-      <span style="background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.45rem 1rem;font-size:.75rem;color:rgba(255,255,255,.7)">Intl. J. Vehicle Structures (Scopus)</span>
-      <span style="background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.15);border-radius:8px;padding:.45rem 1rem;font-size:.75rem;color:rgba(255,255,255,.7)">J. Integrated Science & Technology</span>
+    <h3 class="sh" style="margin-top:2rem">Publication Partners</h3>
+    <div class="pub-partners">
+      <span class="pp">Springer (Lecture Notes in Mech. Engg.)</span>
+      <span class="pp">IOS Press (Scopus)</span>
+      <span class="pp">Material Science Forum (Scopus)</span>
+      <span class="pp">Intl. J. Vehicle Structures (Scopus)</span>
+      <span class="pp">J. Integrated Science & Technology</span>
     </div>
-
-    <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="https://icapie.com" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--capier-accent);color:#fff;padding:.65rem 1.5rem;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none">🌐 icapie.com</a>
-      <a href="mailto:icapie.dtu@gmail.com" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;padding:.65rem 1.5rem;border-radius:8px;font-size:.82rem;font-weight:500;text-decoration:none">✉️ icapie.dtu@gmail.com</a>
+    <div class="btn-row">
+      <a href="https://icapie.com" target="_blank" class="btn btn-c">🌐 icapie.com</a>
+      <a href="mailto:icapie.dtu@gmail.com" class="btn btn-o">✉️ icapie.dtu@gmail.com</a>
     </div>
   </div>
 </section>
 
-<!-- CENTRES OVERVIEW -->
+<!-- CENTRES -->
 <section>
   <div class="section-inner">
     <div class="section-tag">Leadership</div>
     <h2 class="section-title">All Centres & Initiatives</h2>
     <div class="section-line"></div>
     <div class="centres-grid">
-      <div class="centre-card"><h4>CIDE</h4><div class="centre-full">Centre for Industrial Design & Ergonomics</div><p>Driving research in product design, human factors, UX, and ergonomic interventions across healthcare, education, and industry. Hosts poster presentations and design internships.</p></div>
-      <div class="centre-card"><h4>CAPIER</h4><div class="centre-full">Centre for Advanced Production & Industrial Engg. Research</div><p>Hub for advanced manufacturing, CNC optimization, FSW, additive manufacturing, and Industry 4.0. Organizes ICAPIE with Springer proceedings.</p></div>
-      <div class="centre-card"><h4>DTU ALTAIR</h4><div class="centre-full">Centre for Artificial Intelligence & Robotics</div><p>Official robotics & AI team competing globally in CANSAT, ABU Robocon, Technoxian. Developing autonomous drones, wall-climbing robots, and AI health devices.</p></div>
+      <div class="ctr"><h4>CIDE</h4><div class="cf">Centre for Industrial Design & Ergonomics</div><p>Product design, human factors, UX, ergonomic interventions across healthcare, education & industry.</p></div>
+      <div class="ctr"><h4>CAPIER</h4><div class="cf">Centre for Advanced Production & Industrial Engg. Research</div><p>Advanced manufacturing, CNC optimization, FSW, additive manufacturing, Industry 4.0. Organizes ICAPIE.</p></div>
+      <div class="ctr"><h4>DTU ALTAIR</h4><div class="cf">Centre for Artificial Intelligence & Robotics</div><p>Competing globally — CANSAT, Robocon, Technoxian. Autonomous drones, wall-climbing robots, AI health devices.</p></div>
     </div>
   </div>
 </section>
@@ -516,16 +514,16 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
     <div class="section-tag">Research</div>
     <h2 class="section-title">Research Focus Areas</h2>
     <div class="section-line"></div>
-    <div class="research-areas">
-      <div class="ra-card"><div class="ra-icon">🔧</div><h4>Production & Manufacturing</h4><p>CNC machining optimization, surface roughness analysis, Taguchi, RSM, ANOVA approaches.</p></div>
-      <div class="ra-card"><div class="ra-icon">🔗</div><h4>Friction Stir Welding</h4><p>Dissimilar metal joining, surface composite fabrication, mechanical property enhancement.</p></div>
-      <div class="ra-card"><div class="ra-icon">🎨</div><h4>Industrial & Product Design</h4><p>Human-centered design, ergonomics, UX, and engineering-design integration.</p></div>
-      <div class="ra-card"><div class="ra-icon">🖨️</div><h4>Additive Manufacturing</h4><p>3D printing supply chain impact, nanocomposite fabrication, advanced material processing.</p></div>
-      <div class="ra-card"><div class="ra-icon">🧠</div><h4>AI & Design Innovation</h4><p>AI-driven product development, generative design, and creative process automation.</p></div>
-      <div class="ra-card"><div class="ra-icon">🎭</div><h4>Color Psychology & Neurodesign</h4><p>Color influence on cognition, decision-making in healthcare and educational environments.</p></div>
-      <div class="ra-card"><div class="ra-icon">🏥</div><h4>Healthcare Design</h4><p>Diagnostic devices, pediatric environments, sustainable transport frameworks.</p></div>
-      <div class="ra-card"><div class="ra-icon">🛡️</div><h4>Surface Coatings</h4><p>HVOF sprayed FGC coatings, MWCNT nanocomposites, surface texturing on CNC inserts.</p></div>
-      <div class="ra-card"><div class="ra-icon">📊</div><h4>Optimization Techniques</h4><p>MCDM, Taguchi, RSM, ANOVA for manufacturing parameter optimization.</p></div>
+    <div class="grid-3">
+      <div class="ra-card"><div class="ra-icon">🔧</div><h4>Production & Manufacturing</h4><p>CNC optimization, surface roughness, Taguchi, RSM, ANOVA.</p></div>
+      <div class="ra-card"><div class="ra-icon">🔗</div><h4>Friction Stir Welding</h4><p>Dissimilar metal joining, surface composites, property enhancement.</p></div>
+      <div class="ra-card"><div class="ra-icon">🎨</div><h4>Industrial & Product Design</h4><p>Human-centered design, ergonomics, UX & engineering-design integration.</p></div>
+      <div class="ra-card"><div class="ra-icon">🖨️</div><h4>Additive Manufacturing</h4><p>3D printing supply chains, nanocomposites, advanced material processing.</p></div>
+      <div class="ra-card"><div class="ra-icon">🧠</div><h4>AI & Design Innovation</h4><p>AI-driven product development, generative design & creative automation.</p></div>
+      <div class="ra-card"><div class="ra-icon">🎭</div><h4>Color Psychology</h4><p>Color influence on cognition in healthcare & educational environments.</p></div>
+      <div class="ra-card"><div class="ra-icon">🏥</div><h4>Healthcare Design</h4><p>Diagnostic devices, pediatric environments, sustainable transport.</p></div>
+      <div class="ra-card"><div class="ra-icon">🛡️</div><h4>Surface Coatings</h4><p>HVOF FGC coatings, MWCNT nanocomposites, CNC insert texturing.</p></div>
+      <div class="ra-card"><div class="ra-icon">📊</div><h4>Optimization</h4><p>MCDM, Taguchi, RSM, ANOVA for manufacturing parameters.</p></div>
     </div>
   </div>
 </section>
@@ -534,18 +532,18 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
 <section id="publications">
   <div class="section-inner">
     <div class="section-tag">Publications</div>
-    <h2 class="section-title">Selected Works & Scholarship</h2>
+    <h2 class="section-title">Selected Works</h2>
     <div class="section-line"></div>
     <div class="pub-grid">
-      <div class="pub-item"><div class="pub-num">📖</div><div class="pub-info"><h4>Applications of Taguchi Techniques in Turning</h4><p>Published book — AKN Learning, New Delhi, 2015. ISBN: 978-81-92735-94-8.</p><span class="pub-tag">Book</span></div></div>
-      <div class="pub-item"><div class="pub-num">📚</div><div class="pub-info"><h4>Advances in Mechanical Engineering and Technology</h4><p>Co-edited ICAPIE proceedings. Springer, Lecture Notes in Mechanical Engineering.</p><span class="pub-tag">Springer Proceedings</span></div></div>
-      <div class="pub-item"><div class="pub-num">📝</div><div class="pub-info"><h4>Journal of Advanced Design — Editor-in-Chief</h4><p>Open-access, multidisciplinary journal. ISSN: 3108-0774. Currently in Volume 2.</p><span class="pub-tag">Journal Leadership</span></div></div>
-      <div class="pub-item"><div class="pub-num">🔬</div><div class="pub-info"><h4>200+ Research Papers · 2,500+ Citations</h4><p>International journals and conference proceedings spanning machining, FSW, coatings, additive manufacturing, design, and optimization.</p><span class="pub-tag">Journals & Conferences</span></div></div>
+      <div class="pub-item"><div class="pub-icon">📖</div><div class="pub-info"><h4>Applications of Taguchi Techniques in Turning</h4><p>AKN Learning, New Delhi, 2015. ISBN: 978-81-92735-94-8.</p><span class="pub-tag">Book</span></div></div>
+      <div class="pub-item"><div class="pub-icon">📚</div><div class="pub-info"><h4>Advances in Mechanical Engineering and Technology</h4><p>Co-edited ICAPIE proceedings. Springer, Lecture Notes in Mech. Engg.</p><span class="pub-tag">Springer</span></div></div>
+      <div class="pub-item"><div class="pub-icon">📝</div><div class="pub-info"><h4>Journal of Advanced Design — Editor-in-Chief</h4><p>Open-access multidisciplinary journal. ISSN: 3108-0774. Volume 2.</p><span class="pub-tag">Journal</span></div></div>
+      <div class="pub-item"><div class="pub-icon">🔬</div><div class="pub-info"><h4>200+ Papers · 2,500+ Citations</h4><p>Intl. journals & conference proceedings spanning machining, FSW, coatings, additive mfg, design & optimization.</p><span class="pub-tag">Research</span></div></div>
     </div>
-    <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="https://scholar.google.co.in/citations?user=Tv70XfcAAAAJ&hl=en" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;padding:.6rem 1.2rem;border-radius:8px;font-size:.8rem;font-weight:500;text-decoration:none">📊 Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Ranganath-Singari" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--lgray);color:var(--navy);padding:.6rem 1.2rem;border-radius:8px;font-size:.8rem;font-weight:500;text-decoration:none">🔬 ResearchGate</a>
-      <a href="https://du-in.academia.edu/RanganathMSingari" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--lgray);color:var(--navy);padding:.6rem 1.2rem;border-radius:8px;font-size:.8rem;font-weight:500;text-decoration:none">🎓 Academia.edu</a>
+    <div class="btn-row" style="margin-top:1.25rem">
+      <a href="https://scholar.google.co.in/citations?user=Tv70XfcAAAAJ&hl=en" target="_blank" class="btn btn-nav">📊 Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Ranganath-Singari" target="_blank" class="btn btn-bdr">🔬 ResearchGate</a>
+      <a href="https://du-in.academia.edu/RanganathMSingari" target="_blank" class="btn btn-bdr">🎓 Academia.edu</a>
     </div>
   </div>
 </section>
@@ -556,17 +554,17 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
     <div class="section-tag">Recognition</div>
     <h2 class="section-title">Awards & Memberships</h2>
     <div class="section-line"></div>
-    <div class="awards-list">
-      <div class="award-item"><div class="award-icon">🏆</div><div><h4>IEEE Exceptional Leadership Award</h4><p>Presented by Dr. Kathleen A. Kramer, IEEE President, during Golden Jubilee of IEEE India Council.</p></div></div>
-      <div class="award-item"><div class="award-icon">🥇</div><div><h4>Commendable Research Award</h4><p>5th Research Excellence Awards, DTU, March 2022.</p></div></div>
-      <div class="award-item"><div class="award-icon">📋</div><div><h4>Chairman, Skill India Program</h4><p>Production Engineering track under DTTE, Govt. of NCT Delhi.</p></div></div>
-      <div class="award-item"><div class="award-icon">✍️</div><div><h4>Executive Director & Chief Editor</h4><p>Know Your Designers — celebrating the Indian design community.</p></div></div>
+    <div class="awards-grid">
+      <div class="aw"><div class="aw-ic">🏆</div><div><h4>IEEE Exceptional Leadership Award</h4><p>From Dr. Kathleen A. Kramer, IEEE President — Golden Jubilee of IEEE India Council.</p></div></div>
+      <div class="aw"><div class="aw-ic">🥇</div><div><h4>Commendable Research Award</h4><p>5th Research Excellence Awards, DTU, March 2022.</p></div></div>
+      <div class="aw"><div class="aw-ic">📋</div><div><h4>Chairman, Skill India Program</h4><p>Production Engineering track, DTTE, Govt. of NCT Delhi.</p></div></div>
+      <div class="aw"><div class="aw-ic">✍️</div><div><h4>Executive Director & Chief Editor</h4><p>Know Your Designers — celebrating Indian design community.</p></div></div>
     </div>
-    <h3 style="margin-top:2.5rem;font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:1rem">Professional Memberships</h3>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap">
-      <span style="background:var(--white);border:1px solid var(--lgray);border-radius:8px;padding:.5rem 1rem;font-size:.8rem;font-weight:500;color:var(--navy)">IEEE</span>
-      <span style="background:var(--white);border:1px solid var(--lgray);border-radius:8px;padding:.5rem 1rem;font-size:.8rem;font-weight:500;color:var(--navy)">ISME — Indian Society of Mechanical Engineers</span>
-      <span style="background:var(--white);border:1px solid var(--lgray);border-radius:8px;padding:.5rem 1rem;font-size:.8rem;font-weight:500;color:var(--navy)">ISTE — Indian Society for Technical Education</span>
+    <h3 class="sh2" style="margin-top:2rem">Professional Memberships</h3>
+    <div class="chips">
+      <span class="chip">IEEE</span>
+      <span class="chip">ISME — Indian Society of Mechanical Engineers</span>
+      <span class="chip">ISTE — Indian Society for Technical Education</span>
     </div>
   </div>
 </section>
@@ -577,53 +575,44 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
     <div class="section-tag">Teaching</div>
     <h2 class="section-title">Courses & Mentorship</h2>
     <div class="section-line"></div>
-    <div class="courses-flex">
-      <span class="course-chip">Innovative Product Design</span>
-      <span class="course-chip">Industrial Processes & Design</span>
-      <span class="course-chip">Production & Industrial Engineering</span>
-      <span class="course-chip">Research & Publication Ethics</span>
-      <span class="course-chip">CAD / CAM / Automation</span>
-      <span class="course-chip">Metal Cutting & Tool Design</span>
-      <span class="course-chip">Operations Research</span>
-      <span class="course-chip">Design Thinking & Management</span>
-      <span class="course-chip">Cognitive Design</span>
-      <span class="course-chip">UX Design</span>
-      <span class="course-chip">Story Narration & Film Design</span>
+    <div class="chips">
+      <span class="chip">Innovative Product Design</span>
+      <span class="chip">Industrial Processes & Design</span>
+      <span class="chip">Production & Industrial Engineering</span>
+      <span class="chip">Research & Publication Ethics</span>
+      <span class="chip">CAD / CAM / Automation</span>
+      <span class="chip">Metal Cutting & Tool Design</span>
+      <span class="chip">Operations Research</span>
+      <span class="chip">Design Thinking & Management</span>
+      <span class="chip">Cognitive Design</span>
+      <span class="chip">UX Design</span>
+      <span class="chip">Story Narration & Film Design</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem">
-      <div style="background:var(--section-alt);border:1px solid var(--lgray);border-radius:12px;padding:1.5rem;text-align:center">
-        <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent)">12+</div>
-        <div style="font-size:.78rem;color:var(--gray);margin-top:.25rem">PhD Scholars Guided</div>
-      </div>
-      <div style="background:var(--section-alt);border:1px solid var(--lgray);border-radius:12px;padding:1.5rem;text-align:center">
-        <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent)">18+</div>
-        <div style="font-size:.78rem;color:var(--gray);margin-top:.25rem">M.Tech Projects</div>
-      </div>
-      <div style="background:var(--section-alt);border:1px solid var(--lgray);border-radius:12px;padding:1.5rem;text-align:center">
-        <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent)">85+</div>
-        <div style="font-size:.78rem;color:var(--gray);margin-top:.25rem">B.Tech Projects</div>
-      </div>
+    <div class="num-grid">
+      <div class="num-card"><div class="n">12+</div><div class="nl">PhD Scholars Guided</div></div>
+      <div class="num-card"><div class="n">18+</div><div class="nl">M.Tech Projects</div></div>
+      <div class="num-card"><div class="n">85+</div><div class="nl">B.Tech Projects</div></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
+<section id="contact" class="contact-s">
   <div class="section-inner">
     <div class="section-tag" style="color:var(--accent)">Get in Touch</div>
     <h2 class="section-title" style="color:#fff">Contact & Connect</h2>
     <div class="section-line"></div>
     <div class="contact-grid">
-      <div class="contact-info">
-        <div class="c-item"><div class="c-icon">🏫</div><div><h4>Office</h4><p>Dept. of Mechanical, Production & Industrial Engineering<br>Delhi Technological University<br>Shahbad Daulatpur, Bawana Road, Delhi – 110042</p></div></div>
-        <div class="c-item"><div class="c-icon">✉️</div><div><h4>Email</h4><p><a href="mailto:ranganathdce@gmail.com">ranganathdce@gmail.com</a></p></div></div>
-        <div class="c-item"><div class="c-icon">🌐</div><div><h4>DTU Faculty Page</h4><p><a href="https://www.dtu.ac.in/Web/Departments/Mechanical/faculty/ranganath.php" target="_blank">dtu.ac.in/faculty/ranganath</a></p></div></div>
+      <div>
+        <div class="ci"><div class="ci-ic">🏫</div><div><h4>Office</h4><p>Dept. of Mech., Production & Industrial Engg.<br>Delhi Technological University<br>Shahbad Daulatpur, Delhi – 110042</p></div></div>
+        <div class="ci"><div class="ci-ic">✉️</div><div><h4>Email</h4><p><a href="mailto:ranganathdce@gmail.com">ranganathdce@gmail.com</a></p></div></div>
+        <div class="ci"><div class="ci-ic">🌐</div><div><h4>DTU Faculty Page</h4><p><a href="https://www.dtu.ac.in/Web/Departments/Mechanical/faculty/ranganath.php" target="_blank">dtu.ac.in/faculty/ranganath</a></p></div></div>
       </div>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/prof-ranganath-m-singari-0692b619/" target="_blank" class="contact-link"><span class="cl-icon">💼</span><div><div class="cl-text">LinkedIn</div><div class="cl-sub">Professional network & updates</div></div></a>
-        <a href="https://scholar.google.co.in/citations?user=Tv70XfcAAAAJ&hl=en" target="_blank" class="contact-link"><span class="cl-icon">📊</span><div><div class="cl-text">Google Scholar</div><div class="cl-sub">Publications, citations & h-index</div></div></a>
-        <a href="https://www.researchgate.net/profile/Ranganath-Singari" target="_blank" class="contact-link"><span class="cl-icon">🔬</span><div><div class="cl-text">ResearchGate</div><div class="cl-sub">Research papers & collaborations</div></div></a>
-        <a href="https://journalofdesign.in" target="_blank" class="contact-link"><span class="cl-icon">📰</span><div><div class="cl-text">Journal of Advanced Design</div><div class="cl-sub">Editor-in-Chief · ISSN: 3108-0774</div></div></a>
+      <div>
+        <a href="https://www.linkedin.com/in/prof-ranganath-m-singari-0692b619/" target="_blank" class="cl"><span class="cl-i">💼</span><div><div class="cl-t">LinkedIn</div><div class="cl-s">Professional network & updates</div></div></a>
+        <a href="https://scholar.google.co.in/citations?user=Tv70XfcAAAAJ&hl=en" target="_blank" class="cl"><span class="cl-i">📊</span><div><div class="cl-t">Google Scholar</div><div class="cl-s">Publications, citations & h-index</div></div></a>
+        <a href="https://www.researchgate.net/profile/Ranganath-Singari" target="_blank" class="cl"><span class="cl-i">🔬</span><div><div class="cl-t">ResearchGate</div><div class="cl-s">Research papers & collaborations</div></div></a>
+        <a href="https://journalofdesign.in" target="_blank" class="cl"><span class="cl-i">📰</span><div><div class="cl-t">Journal of Advanced Design</div><div class="cl-s">Editor-in-Chief · ISSN: 3108-0774</div></div></a>
       </div>
     </div>
   </div>
@@ -632,23 +621,40 @@ footer{background:var(--navy);border-top:1px solid rgba(200,164,90,.1);padding:2
 <footer><p>© 2026 Prof. Ranganath M. Singari · Delhi Technological University · All Rights Reserved</p></footer>
 
 <script>
-document.querySelectorAll('.nav-links a').forEach(a=>{
+// Mobile menu
+const hb=document.getElementById('hb'),mm=document.getElementById('mm');
+hb.addEventListener('click',()=>{
+  mm.classList.toggle('open');
+  const s=hb.querySelectorAll('span');
+  if(mm.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)'}
+  else{s[0].style.transform='';s[1].style.opacity='1';s[2].style.transform=''}
+});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mm.classList.remove('open');
+  const s=hb.querySelectorAll('span');
+  s[0].style.transform='';s[1].style.opacity='1';s[2].style.transform='';
+}));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
     const t=document.querySelector(a.getAttribute('href'));
-    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    if(t){t.scrollIntoView({behavior:'smooth',block:'start'})}
   });
 });
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.style.animation='fadeUp .6s ease forwards';obs.unobserve(e.target)}
-  });
-},{threshold:.1});
-document.querySelectorAll('.ra-card,.tl-item,.pub-item,.centre-card,.award-item,.highlight-card,.altair-dept,.team-card,.project-card,.achieve-card,.capier-card,.conf-chip').forEach(el=>{
+
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp .5s ease forwards';obs.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.ra-card,.tl-item,.pub-item,.ctr,.aw,.hl-card,.a-dept,.tc,.proj,.ach,.cc,.conf,.ip-card').forEach(el=>{
   el.style.opacity='0';obs.observe(el);
 });
+
+// Nav shadow
 window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,.15)':'none';
+  document.querySelector('nav').style.boxShadow=scrollY>40?'0 4px 16px rgba(0,0,0,.15)':'none';
 });
 </script>
 </body>
